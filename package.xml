@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>rosserial_stm32f1_tutorials</name>
+  <version>0.0.1</version>
+  <description>rosserial tutorials for STM32 MCUs.</description>
+  
+  <author>Vitor Matos</author>
+  <maintainer email="vmatos@robosavvy.com">Vitor Matos</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/rosserial_stm32f1/Tutorials</url>
+  <url type="repository">https://github.com/robosavvy/rosserial_stm32f1_tutorials</url>
+  <author email="vmatos@robosavvy.com">Vitor Matos</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>rosserial_client</build_depend>
+  <build_depend>rosserial_stm32f1</build_depend>  
+  <build_depend>std_msgs</build_depend>
+  
+  <run_depend>rosserial_client</run_depend>
+  <run_depend>rosserial_stm32f1</run_depend>
+  <run_depend>std_msgs</run_depend>
+</package>
