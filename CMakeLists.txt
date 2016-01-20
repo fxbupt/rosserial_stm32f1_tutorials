@@ -33,3 +33,16 @@ rosserial_add_client_target(
   size 
   arm-none-eabi-size -A -d ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/chatter
 )
+
+# FreeRTOS tutorial
+rosserial_configure_client(
+  DIRECTORY freertos
+  TOOLCHAIN_FILE ${ROSSERIAL_STM32_TOOLCHAIN}
+)
+rosserial_add_client_target(freertos freertos ALL)
+rosserial_add_client_target(freertos freertos.bin)
+rosserial_add_client_target(
+  freertos 
+  flash 
+  st-flash write ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/freertos.bin 0x08000000
+)
