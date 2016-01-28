@@ -131,9 +131,13 @@ class STM32Hardware
     // write data to the connection to ROS
     void write(uint8_t* data, int length)
     {
-      RingBufferU8_write(&txBuffer, data, length);
-      // Trigger sending buffer
-      USART_SendData(USART2, (uint8_t)RingBufferU8_readByte(&txBuffer));
+      if(RingBufferU8_free(&txBuffer) >= length)
+      {
+        RingBufferU8_write(&txBuffer, data, length);
+        // Trigger sending buffer if not already sending
+        if (USART_GetFlagStatus(USART2, USART_FLAG_TXE) == SET)
+          USART_SendData(USART2, (uint8_t)RingBufferU8_readByte(&txBuffer));
+      }
     }
 
     // returns milliseconds since start of program
