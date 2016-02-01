@@ -71,7 +71,7 @@ include_directories(
 # Custom startup, so we call __libc_init_array before entering main.
 # Usual ${CMSIS_STARTUP_SOURCE}
 # Here we ommit STM32Hardware definition, we use instead STM32Hardware_FreeRTOS.cpp
-add_executable(${CMAKE_PROJECT_NAME}  ${ROS_LIB_DIR}/time.cpp ${ROS_LIB_DIR}/ringbuffer.c ${PROJECT_SOURCES} ${CMSIS_SOURCES} ${StdPeriphLib_SOURCES} ${FREERTOS_SOURCES})
+add_executable(${CMAKE_PROJECT_NAME}  ${ROS_LIB_DIR}/time.cpp ${ROS_LIB_DIR}/ringbuf.c ${PROJECT_SOURCES} ${CMSIS_SOURCES} ${StdPeriphLib_SOURCES} ${FREERTOS_SOURCES})
 # Link required libraries
 target_link_libraries(${CMAKE_PROJECT_NAME} gcc c m nosys)
 
